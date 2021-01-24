@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # post 'user_token' => 'user_token#create'
   scope '/auth' do
     post '/signin', to: 'user_token#create'

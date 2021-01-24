@@ -40,5 +40,10 @@ module FullfeaturedApi
     config.time_zone = 'Moscow'
     config.i18n.available_locales = :ru
     config.i18n.default_locale = :ru
+
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Flash
+    config.middleware.use Rack::MethodOverride
+    config.middleware.use ActionDispatch::Session::CookieStore, { key: '_fullfeatured_api_session' }
   end
 end

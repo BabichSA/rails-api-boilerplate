@@ -6,5 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-admin = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, username: 'admin', email: 'admin@admin.com', password: 'P@ssw0rd',
-                     password_confirmation: 'P@ssw0rd')
+superadmin = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  username: 'admin',
+  email: 'admin@admin.com',
+  role: 'superadmin',
+  password: 'P@ssw0rd',
+  password_confirmation: 'P@ssw0rd'
+)

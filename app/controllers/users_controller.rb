@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-
     render json: @users
   end
 
@@ -36,6 +35,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   def destroy
     @user.destroy
+    render json: { status: 'success' }
   end
 
   private
@@ -43,6 +43,9 @@ class UsersController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
+  rescue StandardError => e
+    logger.info e
+    render json: { message: I18n.t('errors.not_found') }, status: :not_found
   end
 
   # Only allow a list of trusted parameters through.
