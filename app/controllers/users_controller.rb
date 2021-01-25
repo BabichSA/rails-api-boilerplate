@@ -5,12 +5,12 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-    render json: @users
+    render json: UserSerializer.new(@users).serialized_json
   end
 
   # GET /users/1
   def show
-    render json: @user
+    render json: UserSerializer.new(@user).serialized_json
   end
 
   # POST /users
@@ -39,6 +39,14 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def current_page
+    (params[:page] || 1).to_i
+  end
+
+  def per_page
+    (params[:per_page] || 20).to_i
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user

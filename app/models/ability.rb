@@ -15,8 +15,6 @@ class Ability
     elsif user.admin?
       can :access, :rails_admin         # grant access to rails_admin
       can :manage, :all                 # admins can manage all objects
-      # can :crud, User, company_id: user.company_id
-      # can :update, Companies::Company, id: user.company_id
     end
   end
 end
