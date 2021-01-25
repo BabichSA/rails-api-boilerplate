@@ -23,6 +23,7 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /config/secrets.yml
+/config/credentials.yml.enc
 
 /lib/tasks/auto_annotate_models.*
 .vscode
